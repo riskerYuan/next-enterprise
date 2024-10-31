@@ -1,10 +1,13 @@
 export interface CreateUserInput {
   name: string;
   email: string;
+  image: string;
 }
 
 export interface User {
-  id: string;
+  id: number;
   name: string;
   email: string;
+  image: string;
+  createdAt: Date;
 } 
