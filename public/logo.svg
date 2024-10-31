@@ -1,0 +1,32 @@
+<svg
+    width="200"
+    height="200"
+    viewBox="0 0 200 200"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <!-- Duck Head -->
+    <circle cx="100" cy="100" r="80" fill="#FFD700" stroke="#FFA500" stroke-width="5" />
+
+    <!-- G-shaped Beak positioned below and centered -->
+    <text x="100" y="160" font-family="Arial" font-size="48" fill="#FFA500" stroke="#FF8C00" stroke-width="2" text-anchor="middle">i</text>
+
+    <!-- Duck Eye Left -->
+    <circle cx="75" cy="80" r="12" fill="white" />
+    <circle cx="75" cy="80" r="6" fill="black" />
+
+    <!-- Duck Eye Right -->
+    <circle cx="125" cy="80" r="12" fill="white" />
+    <circle cx="125" cy="80" r="6" fill="black" />
+    
+    <!-- Duck Eye Reflection Left -->
+    <circle cx="73" cy="78" r="2" fill="white" />
+
+    <!-- Duck Eye Reflection Right -->
+    <circle cx="123" cy="78" r="2" fill="white" />
+
+    <!-- Duck Cheek Blush Left -->
+    <circle cx="65" cy="110" r="10" fill="#FFB6C1" opacity="0.5" />
+
+    <!-- Duck Cheek Blush Right -->
+    <circle cx="135" cy="110" r="10" fill="#FFB6C1" opacity="0.5" />
+</svg>
