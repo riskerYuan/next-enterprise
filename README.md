@@ -25,7 +25,7 @@ With this template, you get all the awesomeness you need:
 - **[Observability](https://opentelemetry.io/)** - Open Telemetry integration for seamless monitoring
 - **[Absolute imports](https://nextjs.org/docs/advanced-features/module-path-aliases)** - No more spaghetti imports
 - **[Health checks](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)** - Kubernetes-compatible for robust deployments
-- **[Radix UI](https://www.radix-ui.com/)** - Headless UI components for endless customization
+- **[shadcn/ui](https://ui.shadcn.com/)** - Beautiful, customizable, and accessible UI components
 - **[CVA](http://cva.style/)** - Create a consistent, reusable, and atomic design system
 - **[Renovate BOT](https://www.whitesourcesoftware.com/free-developer-tools/renovate)** - Auto-updating dependencies, so you can focus on coding
 - **[Patch-package](https://www.npmjs.com/package/patch-package)** - Fix external dependencies without losing your mind
@@ -48,6 +48,7 @@ With this template, you get all the awesomeness you need:
     - [Acceptance Tests](#acceptance-tests)
     - [Smoke Testing](#smoke-testing)
   - [Styling and Design System](#-styling-and-design-system)
+    - [Component Library](#component-library)
     - [CVA - A New Approach to Variants](#cva---a-new-approach-to-variants)
   - [State Management](#-state-management)
     - [Zustand](#zustand)
@@ -74,13 +75,13 @@ git clone https://github.com/<your_username)/next-enterprise.git
 2. Install the dependencies:
 
 ```bash
-yarn install --frozen-lockfile
+pnpm install
 ```
 
 3. Run the development server:
 
 ```bash
-yarn dev
+pnpm dev
 ```
 
 4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -102,13 +103,13 @@ To run the full-stack application locally, follow these steps:
 - Install the Vercel Postgres package
 
   ```bash
-  yarn add @vercel/postgres
+  pnpm add @vercel/postgres
   ```
 
 - The latest version of Vercel CLI
 
   ```bash
-  yarn global add vercel@latest
+  pnpm global add vercel@latest
   ```
 
 ### Steps
@@ -122,7 +123,7 @@ To run the full-stack application locally, follow these steps:
 2. Start the development server:
 
    ```bash
-   yarn dev
+   pnpm dev
    ```
 
 3. If you need to modify the Prisma database locally, run:
@@ -140,7 +141,7 @@ To run the full-stack application locally, follow these steps:
 5. If you need to build the application for deployment on Vercel, run:
 
    ```bash
-   yarn vercel-build
+   pnpm vercel-build
    ```
 
 ## 🚀 Deployment
@@ -168,7 +169,7 @@ The following scripts are available in the `package.json`:
 - `e2e:ui`: Runs end-to-end tests with UI
 - `format`: Formats the code with Prettier
 - `postinstall`: Applies patches to external dependencies
-- `preinstall`: Ensures the project is installed with Yarn
+- `preinstall`: Ensures the project is installed with pnpm
 - `coupling-graph`: **Generates a coupling and cohesion graph for the components**
 - `vercel-build`: Builds the application specifically for deployment on Vercel, ensuring all configurations are optimized for the Vercel platform
 
@@ -177,7 +178,7 @@ The following scripts are available in the `package.json`:
 The `coupling-graph` script is a useful tool that helps visualize the coupling and connections between your project's internal modules. It's built using the [Madge](https://github.com/pahen/madge) library. To generate the graph, simply run the following command:
 
 ```bash
-yarn coupling-graph
+pnpm coupling-graph
 ```
 
 This will create a `graph.svg` file, which contains a graphical representation of the connections between your components. You can open the file with any SVG-compatible viewer.
@@ -190,9 +191,9 @@ This boilerplate comes with various testing setups to ensure your application's 
 
 ### Running Tests
 
-- **Unit and integration tests**: Run Jest tests using `yarn test`
-- **End-to-end tests (headless mode)**: Run Playwright tests in headless mode with `yarn e2e:headless`
-- **End-to-end tests (UI mode)**: Run Playwright tests with UI using `yarn e2e:ui`
+- **Unit and integration tests**: Run Jest tests using `pnpm test`
+- **End-to-end tests (headless mode)**: Run Playwright tests in headless mode with `pnpm e2e:headless`
+- **End-to-end tests (UI mode)**: Run Playwright tests with UI using `pnpm e2e:ui`
 
 <img width="1392" alt="image" src="https://user-images.githubusercontent.com/28964599/233666655-93b7d08b-2fd8-406a-b43c-44d4d96cf387.png">
 
@@ -234,13 +235,28 @@ export const FilledForm: Story = {
 
 ### Smoke Testing
 
-In this boilerplate, we use Storybook's out-of-the-box support for smoke testing to verify that components render correctly without any errors. Just run `yarn test-storybook` to perform smoke testing. Remember to write stories in JSX or TSX format only. Smoke testing and a lot of other functionalities dont work well with MDX stories.
+In this boilerplate, we use Storybook's out-of-the-box support for smoke testing to verify that components render correctly without any errors. Just run `pnpm test-storybook` to perform smoke testing. Remember to write stories in JSX or TSX format only. Smoke testing and a lot of other functionalities dont work well with MDX stories.
 
 ## 🎨 Styling and Design System
 
-This boilerplate uses Tailwind CSS for styling and CVA for creating a powerful, easy-to-use design system. If you want to learn more about the setup, check out this fantastic video by Vercel:
+This boilerplate uses Tailwind CSS for styling and shadcn/ui for the component library. shadcn/ui provides a set of beautiful, accessible, and customizable components that are built on top of Radix UI primitives.
 
-[![Styling and Design System](https://img.youtube.com/vi/T-Zv73yZ_QI/0.jpg)](https://www.youtube.com/watch?v=T-Zv73yZ_QI&ab_channel=Vercel)
+### Component Library
+
+The project uses [shadcn/ui](https://ui.shadcn.com/) which offers:
+
+- 🎨 Beautiful, modern design
+- ♿ Accessible components that follow WAI-ARIA guidelines
+- 🛠️ Easy customization with Tailwind CSS
+- 📦 Copy and paste components
+- 🔧 TypeScript support
+- 🎯 Zero runtime, all components are local
+
+To add a new component from shadcn/ui, use the CLI:
+
+```bash
+pnpm dlx shadcn-ui@latest add [component-name]
+```
 
 ### CVA - A New Approach to Variants
 
